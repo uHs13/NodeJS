@@ -1,31 +1,33 @@
-let http = require('http');
+const express = require('express');
+const path = require('path');
+const app = express();
 
-let server = http.createServer((request, response) => {
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-    console.log(request.url);
+app.get('/', (req, res, next) => {
 
-    switch (request.url) {
-
-        case '/technology':
-
-            response.end('technology news');
-
-            break;
-
-        case '/economy':
-
-            response.end('economy news');
-
-            break;
-
-        default:
-
-            response.end('general news');
-
-            break;
-
-    }
+    res.render('home/index');
 
 });
 
-server.listen(3000);
+app.get('/noticias', (req, res, next) => {
+
+    res.render('noticias/noticias')
+
+});
+
+app.get('/noticias/nova', (req, res, next) => {
+
+    res.render('admin/nova');
+
+});
+
+app.listen(3000, () => {
+
+    /**
+     * https://stackoverflow.com/questions/9781218/how-to-change-node-jss-console-font-color
+     */
+    console.log('\x1b[32m%s\x1b[0m', 'Server running');
+
+});
