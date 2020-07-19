@@ -10,5 +10,5 @@
  * No Express, quando configurados, são executados durante uma requisição a uma ou
  * mais rotas.
  * 
- * Npm é um gerenciador de pacotes
+ * Npm é um gerenciador de pacotes - Node Package Manager
  */
