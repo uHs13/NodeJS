@@ -1,9 +1,20 @@
 const express = require('express');
 const router = express.Router();
+const NewsDAO = require('./../../class/DAO/NewsDAO/NewsDAO');
 
 router.get('/', (req, res, next) => {
 
-    res.render('noticias/noticias');
+    NewsDAO.getAll().then(newsData => {
+
+        res.render('noticias/noticias', {
+            newsData
+        });
+
+    }).catch(error => {
+
+        res.send(error);
+
+    });
 
 });
 

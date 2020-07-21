@@ -1,12 +1,53 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Notícias</title>
-		</head>
-	<body>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Noticias</title>
+</head>
+<body>
+	<main>
 
-		<h1>Notícias</h1>
+		<section>
 
-	</body>
+			<nav>
+
+				<h1>NotÃ­cias</h1>
+	
+			</nav>
+
+		</section>
+
+		<section>
+
+			<div>
+
+				<table>
+
+					<thead>
+						<tr>
+							<th>TÃ­tulo</th>
+							<th>NotÃ­cia</th>
+						</tr>
+					</thead>
+
+					<tbody>
+
+						<% Object.keys(newsData).forEach(key => { %>
+						<tr>
+							<td><%= newsData[key].title %></td>
+							<td><%= newsData[key].news %></td>
+						</tr>
+						<% }); %>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+	</main>
+</body>
 </html>
