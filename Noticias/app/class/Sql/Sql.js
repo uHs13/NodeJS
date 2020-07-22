@@ -47,8 +47,6 @@ class Sql {
 
                     if (error) rej(error);
 
-                    console.log(results);
-
                     res(results['0']);
 
                 });
