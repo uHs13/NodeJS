@@ -1,27 +1,21 @@
-const express = require('express');
-const router = express.Router();
 const NewsDAO = require('./../../class/DAO/NewsDAO/NewsDAO');
 
-router.get('/', (req, res, next) => {
+module.exports = (app) => {
 
-    NewsDAO.getAll().then(newsData => {
+    app.get('/noticias', (req, res, next) => {
 
-        res.render('noticias/noticias', {
-            newsData
+        NewsDAO.getAll().then(newsData => {
+    
+            res.render('noticias/noticias', {
+                newsData
+            });
+    
+        }).catch(error => {
+    
+            res.send(error);
+    
         });
-
-    }).catch(error => {
-
-        res.send(error);
-
+    
     });
 
-});
-
-router.get('/nova', (req, res, next) => {
-
-    res.render('admin/nova');
-
-});
-
-module.exports = router;
+};

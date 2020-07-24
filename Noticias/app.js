@@ -1,11 +1,5 @@
 const app = require('./configuration/server');
 
-const homeRouter = require('./app/routes/home/home');
-const newsRouter = require('./app/routes/noticias/noticias');
-
-app.use('/', homeRouter);
-app.use('/noticias', newsRouter);
-
 app.listen(3000, () => {
 
     /**
