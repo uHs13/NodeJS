@@ -37,12 +37,12 @@ class Sql {
     }
     // .connectDatabase
 
-    query(query) {
+    query(query, params = []) {
 
         return new Promise((res, rej) => {
 
             this.connection.query(
-                query,
+                query, params,
                 (error, results) => {
 
                     if (error) rej(error);

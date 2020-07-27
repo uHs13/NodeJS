@@ -1,12 +1,63 @@
 <!DOCTYPE html>
-	<html lang="pt-br">
-		<head>
-			<meta charset="utf-8"/>
-			<title>Portal de notícias</title>
-		</head>
-	<body>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Noticia</title>
+</head>
+<body>
+	<main>
 
-		<h1>Notícia</h1>
+		<section>
 
-	</body>
+			<nav>
+
+				<h1>Noticia</h1>
+
+			</nav>
+
+		</section>
+
+		<section>
+
+			<div>
+
+				<table>
+
+					<thead>
+
+						<tr>
+
+							<th>TÃ­tulo</th>
+
+							<th>NotÃ­cia</th>
+
+							<th>Hash</th>
+
+						</tr>
+
+					</thead>
+
+					<tbody>
+
+						<tr>
+
+							<td><%= newsData.title %></td>
+
+							<td><%= newsData.news %></td>
+
+							<td><%= newsData.hash %></td>
+
+						</tr>
+
+					</tbody>
+
+				</table>
+
+			</div>
+
+		</section>
+
+	</main>
+</body>
 </html>

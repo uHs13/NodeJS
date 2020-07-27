@@ -41,6 +41,39 @@ class NewsDAO {
     }
     // .getAll
 
+    static get(id = '65264448-cb34-11ea-a4ca-80ee737c3779') {
+
+        return new Promise((res, rej) => {
+
+            let sql = new Sql();
+
+            sql.query(`
+
+                CALL SP_GETNEWS(?)
+
+            `, [
+                id
+            ]).then(results => {
+
+                let jsonNews = {
+                    title: results['0']['TITLE'],
+                    news: results['0']['NEWS'],
+                    hash: results['0']['HASH']
+                }
+
+                res(jsonNews);
+
+            }, reject => {
+
+                rej (reject);
+
+            });
+
+        });
+
+    }
+    // .get
+
 }
 // .NewsDAO
 
