@@ -6,4 +6,10 @@ module.exports = (app) => {
 
     });
 
+    app.post('/noticias/nova', (req, res, next) => {
+
+        res.send(req.body);
+
+    });
+
 };

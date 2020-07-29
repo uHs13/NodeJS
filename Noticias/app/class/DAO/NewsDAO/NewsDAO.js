@@ -52,13 +52,17 @@ class NewsDAO {
                 CALL SP_GETNEWS(?)
 
             `, [
+
                 id
+
             ]).then(results => {
 
                 let jsonNews = {
+
                     title: results['0']['TITLE'],
                     news: results['0']['NEWS'],
                     hash: results['0']['HASH']
+
                 }
 
                 res(jsonNews);
