@@ -1,53 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Noticias</title>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
 </head>
+
 <body>
-	<main>
+	<main class='container'>
 
-		<section>
+		<section class='card m-4 p-4 shadow'>
 
-			<nav>
+			<section>
 
-				<h1>Notícias</h1>
-	
-			</nav>
+				<nav class='text-center'>
 
-		</section>
+					<h1>Notícias</h1>
 
-		<section>
+				</nav>
 
-			<div>
+			</section>
 
-				<table>
+			<section>
 
-					<thead>
-						<tr>
-							<th>Título</th>
-							<th>Notícia</th>
-						</tr>
-					</thead>
+				<div class='table-responsive'>
 
-					<tbody>
+					<table class='table table-striped text-center'>
 
-						<% Object.keys(newsData).forEach(key => { %>
-						<tr>
-							<td><%= newsData[key].title %></td>
-							<td><%= newsData[key].news %></td>
-						</tr>
-						<% }); %>
+						<thead>
+							<tr>
+								<th>Título</th>
+								<th>Notícia</th>
+							</tr>
+						</thead>
 
-					</tbody>
+						<tbody>
 
-				</table>
+							<% Object.keys(newsData).forEach(key => { %>
+							<tr>
+								<td><%= newsData[key].title %></td>
+								<td><%= newsData[key].news %></td>
+							</tr>
+							<% }); %>
 
-			</div>
+						</tbody>
+
+					</table>
+
+					<div class='form-group text-center'>
+
+						<a class='btn btn-success' href='/noticias/nova'>Nova</a>
+
+					</div>
+
+				</div>
+
+			</section>
 
 		</section>
 
 	</main>
 </body>
+
 </html>

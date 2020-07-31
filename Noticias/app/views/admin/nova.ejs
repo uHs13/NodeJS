@@ -24,20 +24,23 @@
 
 			<div>
 
+				<%- include('./../messages/messages') -%>
+
 				<form method='POST'>
 
 					<div class='form-group'>
 						<label for="title">Título</label>
-						<input type="text" id='title' name='title' class='form-control'>
+						<input type="text" id='title' name='title' class='form-control' value="<%= body.title %>">
 					</div>
 
 					<div class='form-group'>
 						<label for="news">Notícia</label>
-						<textarea name="news" id="news" cols="30" rows="10" class='form-control'></textarea>
+						<textarea name="news" id="news" cols="30" rows="10" class='form-control' value="<%= body.news %>"></textarea>
 					</div>
 
 					<div class='form-group text-center'>
 						<button class='btn btn-success'>Cadastrar</button>
+						<a class='btn btn-secondary' href='/noticias'>Voltar</a>
 					</div>
 
 				</form>

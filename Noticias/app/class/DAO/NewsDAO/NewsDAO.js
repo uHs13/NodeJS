@@ -78,6 +78,36 @@ class NewsDAO {
     }
     // .get
 
+    static save(newsData) {
+
+        return new Promise((res, rej) => {
+
+            let sql = new Sql();
+
+            sql.query(`
+
+                CALL SP_INSERTNEWS(?, ?)
+
+            `, [
+
+                newsData.title,
+                newsData.news
+
+            ]).then(results => {
+
+                res(true);
+
+            }, reject => {
+
+                rej (reject);
+
+            });
+
+        });
+
+    }
+    // .save
+
 }
 // .NewsDAO
 
