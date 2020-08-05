@@ -50,7 +50,15 @@ class Validate {
 
                 } else if (this.data[key].length < validate[2]) {
 
-                    rej(`Preencha o campo ${validate[1]}`);
+                    if (this.data[key].length === 0) {
+
+                        rej(`Preencha o campo ${validate[1]}`);
+
+                    } else {
+
+                        rej(`Campo ${validate[1]} precisa de no minimo ${validate[2]} caracteres`);
+
+                    }
 
                 } else if (this.data[key].length > validate[3]) {
 

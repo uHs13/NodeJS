@@ -30,11 +30,12 @@
 
 				<div class='table-responsive'>
 
-					<table class='table table-striped text-center'>
+					<table class='table table-striped text-center text-nowrap'>
 
 						<thead>
 							<tr>
 								<th>Título</th>
+								<th>Autor</th>
 								<th>Notícia</th>
 							</tr>
 						</thead>
@@ -44,6 +45,7 @@
 							<% Object.keys(newsData).forEach(key => { %>
 							<tr>
 								<td><%= newsData[key].title %></td>
+								<td><%= newsData[key].author %></td>
 								<td><%= newsData[key].news %></td>
 							</tr>
 							<% }); %>

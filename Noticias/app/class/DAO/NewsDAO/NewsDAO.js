@@ -20,6 +20,7 @@ class NewsDAO {
 
                     let jsonNews = {
                         title: news['TITLE'],
+                        author: news['AUTHOR'],
                         news: news['NEWS'],
                         hash: news['HASH']
                     }
@@ -60,6 +61,7 @@ class NewsDAO {
                 let jsonNews = {
 
                     title: results['0']['TITLE'],
+                    author: results['0']['AUTHOR'],
                     news: results['0']['NEWS'],
                     hash: results['0']['HASH']
 
@@ -86,11 +88,12 @@ class NewsDAO {
 
             sql.query(`
 
-                CALL SP_INSERTNEWS(?, ?)
+                CALL SP_INSERTNEWS(?, ?, ?)
 
             `, [
 
                 newsData.title,
+                newsData.author,
                 newsData.news
 
             ]).then(results => {

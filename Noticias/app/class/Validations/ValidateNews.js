@@ -6,6 +6,7 @@ class ValidateNews extends Validate {
 
         super([
             ['title', 'Titulo', 1, 100],
+            ['author', 'Autor', 1, 50],
             ['news', 'Notícia', 1, 500]
         ], data);
 
