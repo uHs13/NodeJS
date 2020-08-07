@@ -2,9 +2,9 @@ const NewsDAO = require('./../../class/DAO/NewsDAO/NewsDAO');
 
 module.exports = (app) => {
 
-    app.get('/noticia', (req, res, next) => {
+    app.get('/noticia/:id', (req, res, next) => {
 
-        NewsDAO.get().then(newsData => {
+        NewsDAO.get(req.params.id).then(newsData => {
 
             res.render('noticias/noticia', {
                 newsData

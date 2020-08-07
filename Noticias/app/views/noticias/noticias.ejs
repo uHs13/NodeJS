@@ -37,6 +37,7 @@
 								<th>Título</th>
 								<th>Autor</th>
 								<th>Notícia</th>
+								<th>Ações</th>
 							</tr>
 						</thead>
 
@@ -47,6 +48,9 @@
 								<td><%= newsData[key].title %></td>
 								<td><%= newsData[key].author %></td>
 								<td><%= newsData[key].news %></td>
+								<td>
+									<a href="/noticia/<%= newsData[key].hash %>" class='btn btn-info'>Visualizar</a>
+								</td>
 							</tr>
 							<% }); %>
 
