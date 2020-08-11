@@ -1,76 +1,82 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html lang="pt-br">
 
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Noticias</title>
 
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+	<title>Portal de notícias</title>
 
+	<!-- JQuery -->
+	<script src="js/jquery-2.2.1.js"></script>
+
+	<!-- bootstrap - link cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"
+		integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- incluindo css -->
+	<link href="css/style.css" rel="stylesheet">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" href="images/favicon.ico" />
 </head>
 
 <body>
-	<main class='container'>
 
-		<section class='card m-4 p-4 shadow'>
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+					aria-expanded="false" aria-controls="navbar">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 
-			<section>
+				<a href="/">
+					<img src="/images/logo.png" />
+				</a>
 
-				<nav class='text-center'>
+			</div>
 
-					<h1>Notícias</h1>
+			<div id="navbar" class="navbar-collapse collapse">
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="/">HOME</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
 
-				</nav>
+	<div class="container">
 
-			</section>
-
-			<section>
-
-				<div class='table-responsive'>
-
-					<table class='table table-striped text-center text-nowrap'>
-
-						<thead>
-							<tr>
-								<th>Título</th>
-								<th>Autor</th>
-								<th>Notícia</th>
-								<th>Ações</th>
-							</tr>
-						</thead>
-
-						<tbody>
-
-							<% Object.keys(newsData).forEach(key => { %>
-							<tr>
-								<td><%= newsData[key].title %></td>
-								<td><%= newsData[key].author %></td>
-								<td><%= newsData[key].news %></td>
-								<td>
-									<a href="/noticia/<%= newsData[key].hash %>" class='btn btn-info'>Visualizar</a>
-								</td>
-							</tr>
-							<% }); %>
-
-						</tbody>
-
-					</table>
-
-					<div class='form-group text-center'>
-
-						<a class='btn btn-success' href='/noticias/nova'>Nova</a>
-
-					</div>
-
+		<% Object.keys(newsData).forEach(key => { %>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="noticia_wrapper">
+					<span class="noticia_autor"><%= newsData[key].author %></span>
+					<a href="noticia.html" class="noticia_titulo"><%= newsData[key].title %></a>
+					<!-- <span class="noticia_data">07/09/2016</span> -->
+					<br />
+					<p class="noticia_resumo">
+						<a href="/noticia/<%= newsData[key].hash %>" class='btn btn-info'>Visualizar</a>
+					</p>
 				</div>
+			</div>
+		</div>
+		<% }); %>
 
-			</section>
+		<div class='m-2 text-center'>
 
-		</section>
+			<a class='btn btn-success' href='/noticias/nova'>Nova</a>
 
-	</main>
+		</div>
+
+	</div>
+
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+		integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+		crossorigin="anonymous"></script>
+
 </body>
 
 </html>
