@@ -80,6 +80,46 @@ class NewsDAO {
     }
     // .get
 
+    static get5Last() {
+
+        return new Promise((res, rej) => {
+
+            let sql = new Sql();
+
+            sql.query(`
+
+                CALL SP_GET5LAST
+
+            `).then(results => {
+
+                let response = {};
+
+                results.forEach((news, index) => {
+
+                    let jsonNews = {
+                        title: news['TITLE'],
+                        author: news['AUTHOR'],
+                        hash: news['HASH'],
+                        register: news['REGISTER']
+                    }
+
+                    response[index] = jsonNews;
+
+                });
+
+                res(response);
+
+            }, reject => {
+
+                rej (reject);
+
+            });
+
+        });
+
+    }
+    // .get5Last
+
     static save(newsData) {
 
         return new Promise((res, rej) => {
