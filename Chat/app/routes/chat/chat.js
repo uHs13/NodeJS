@@ -1,8 +1,8 @@
 module.exports = (app) => {
 
-    app.post('/', (req, res, next) => {
+    app.get('/chat', (req, res, next) => {
 
-        res.render('index');
+        res.render('chat');
 
     });
 
