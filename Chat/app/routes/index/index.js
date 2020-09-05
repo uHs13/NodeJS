@@ -1,5 +1,6 @@
 const ValidateNickname = require('./../../modules/validations/ValidateNickname');
 const renderIndex = require('./../../modules/render/render');
+const url = require('url');
 
 module.exports = (app) => {
 
@@ -15,7 +16,12 @@ module.exports = (app) => {
 
         validate.validate().then(nicknameData => {
 
-            res.redirect('/chat');
+            res.redirect(url.format({
+                pathname: '/chat',
+                query: {
+                    user: nicknameData.nickname
+                }
+            }));
 
         }, reject => {
 
