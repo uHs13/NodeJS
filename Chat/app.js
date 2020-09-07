@@ -8,13 +8,27 @@ let port = app.listen(8000, () => {
 
 let io = require('socket.io').listen(port);
 
-io.on('connection', (socket) => {
+app.set('io', io);
 
-    console.log('User connected');
+io.on('connection', (socket) => {
 
     socket.on('disconnect', () => {
 
         console.log('\x1b[36m', 'Good bye user');
+
+    });
+
+    socket.on('sendToAll', (msgInfo) => {
+
+        socket.emit('sendToMe', {
+            title: msgInfo.user,
+            message: msgInfo.message
+        });
+
+        socket.broadcast.emit('sendToUsers', {
+            title: msgInfo.user,
+            message: msgInfo.message
+        });
 
     });
 
