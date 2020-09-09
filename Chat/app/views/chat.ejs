@@ -57,15 +57,14 @@
 				<a class="navbar-brand" href="#">Multiroom Chat</a>
 			</div>
 
-
 			<div class="collapse navbar-collapse" id="navbar-collapse-1">
 				<ul class="nav navbar-nav">
 					<li>
 						<a href="#" id="exibe_chat">Chat</a>
 					</li>
-					<li>
+					<!-- <li>
 						<a href="#" id="exibe_participantes">Participantes</a>
-					</li>
+					</li> -->
 				</ul>
 			</div>
 		</div>
@@ -80,7 +79,7 @@
 			<div class="col-md-1"></div>
 		</div>
 
-		<div class="row participantes" id="participantes" style="display:none">
+		<!-- <div class="row participantes" id="participantes" style="display:none">
 			<div class="col-md-1"></div>
 			<div class="col-md-10">
 				<span class="participante">
@@ -100,7 +99,7 @@
 			</div>
 			<div class="col-md-1"></div>
 
-		</div>
+		</div> -->
 	</div>
 
 	<nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
@@ -178,6 +177,12 @@
 		}
 		// .send
 
+		socket.on('userList', (user) => {
+
+			console.log(user);
+
+		});
+
 		function startSendMessageListener() {
 
 			document.querySelector('#sendmsg').addEventListener('click', () => {
@@ -192,6 +197,8 @@
 						message
 
 					});
+
+					document.querySelector('#message').value = "";
 
 				}
 
