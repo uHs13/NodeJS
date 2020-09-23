@@ -19,3 +19,5 @@ db.collectionName.find({condition: value}, {condition: value}); -
 db.collectionName.find({name: {$eq: 'person'}, age: {$gte: 76}}).pretty();
 db.person.find({$or:[{condition: value}, {condition: value}}]});
 db.person.find({$or:[{name:{$eq: 'name'}},{name:{$eq: 'name2'}}]});
+db.person.update({name: 'Warren'}, {$set:{age: 90, job: 'businessman'}}, {multi: false});
+db.person.remove({'_id': ObjectId('5f686bc5a47eba12b3ff3da7')}, true);
